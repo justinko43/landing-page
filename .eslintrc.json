@@ -1,0 +1,58 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["react-hooks"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "extends": ["plugin:react/recommended", "plugin:prettier/recommended"],
+      "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      },
+      "rules": {
+        "react/display-name": 1,
+        "react/prop-types": 0,
+        "react/jsx-key": [1, { "checkFragmentShorthand": true }],
+        "react/no-deprecated": 1,
+        "react/no-array-index-key": 1,
+        "react/no-unescaped-entities": 1
+      }
+    },
+    {
+      "files": ["**/*.js", "**/*.jsx"],
+      "extends": ["plugin:react/recommended", "plugin:prettier/recommended"],
+      "env": {
+        "browser": true
+      },
+      "parser": "babel-eslint",
+      "rules": {
+        "react/display-name": 1,
+        "react/prop-types": 0,
+        "react/jsx-key": [1, { "checkFragmentShorthand": true }],
+        "react/no-deprecated": 1,
+        "react/no-array-index-key": 1,
+        "react/no-unescaped-entities": 1,
+        "no-unused-vars": 1
+      }
+    },
+    {
+      "files": ["**/*.test.js", "**/*.test.ts"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}
